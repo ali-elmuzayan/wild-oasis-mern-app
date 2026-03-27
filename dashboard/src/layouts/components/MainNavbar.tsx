@@ -2,6 +2,7 @@ import { HiOutlineHome } from "react-icons/hi";
 import {
   HiOutlineCalendarDays,
   HiOutlineCog6Tooth,
+  HiOutlineChevronRight,
   HiOutlineHomeModern,
   HiOutlineUsers,
 } from "react-icons/hi2";
@@ -35,18 +36,50 @@ const MainNavbarDate = [
   },
 ];
 
-const MainNavbar = () => {
+const MainNavbar = ({ isCollapsed = false }: { isCollapsed?: boolean }) => {
   return (
     <nav>
-      <ul className="flex flex-col items-stretch gap-2">
+      <ul className="flex flex-col items-stretch gap-3">
         {MainNavbarDate.map((item) => (
           <li key={item.path}>
             <NavLink
               to={item.path}
-              className="text-2xl font-medium  flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-200 hover:translate-x-1 transition-colors duration-300"
+              end={item.path === "/dashboard"}
+              className={({ isActive }) =>
+                `group flex items-center rounded-2xl border text-lg font-semibold transition-all duration-300 ${
+                  isCollapsed ? "justify-center px-2 py-3" : "gap-3 px-4 py-3"
+                } ${
+                  isActive
+                    ? "border-emerald-200 bg-emerald-50 text-emerald-700 shadow-sm"
+                    : "border-transparent text-gray-600 hover:border-gray-200 hover:bg-white hover:text-gray-900 hover:shadow-sm"
+                }`
+              }
+              aria-label={isCollapsed ? item.title : undefined}
+              title={isCollapsed ? item.title : undefined}
             >
-              <span>{item.icon}</span>
-              <span>{item.title}</span>
+              {({ isActive }) => (
+                <>
+                  <span
+                    className={`rounded-xl p-2 transition-colors duration-300 ${
+                      isActive
+                        ? "bg-emerald-600 text-white"
+                        : "bg-gray-100 text-gray-500 group-hover:bg-gray-900 group-hover:text-white"
+                    }`}
+                  >
+                    {item.icon}
+                  </span>
+                  {!isCollapsed && <span className="flex-1">{item.title}</span>}
+                  {!isCollapsed && (
+                    <HiOutlineChevronRight
+                      className={`transition-all duration-300 ${
+                        isActive
+                          ? "text-emerald-500"
+                          : "text-gray-300 group-hover:translate-x-1 group-hover:text-gray-500"
+                      }`}
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
           </li>
         ))}
