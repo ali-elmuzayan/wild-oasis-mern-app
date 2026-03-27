@@ -1,6 +1,7 @@
 import supabase from "../supabase";
+import type { Cabin } from "../../types/Cabin";
 
-export default async function getCabins() {
+export default async function getCabins(): Promise<Cabin[]> {
   const { data: cabins, error } = await supabase.from("cabins").select("*");
 
   if (error) {
@@ -8,5 +9,5 @@ export default async function getCabins() {
     throw new Error("Cabins could not be loaded");
   }
 
-  return cabins;
+  return cabins ?? [];
 }
