@@ -7,6 +7,8 @@ import Users from "./pages/users/Users";
 import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import NotFound from "./pages/notFound/NotFound";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const router = createBrowserRouter([
   // temporary navigate to dashboard when "/"
@@ -26,8 +28,16 @@ const router = createBrowserRouter([
   { path: "*", element: <NotFound /> },
 ]);
 
+// React query;
+const queryClient = new QueryClient();
+
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;
