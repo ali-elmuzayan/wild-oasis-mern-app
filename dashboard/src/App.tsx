@@ -9,6 +9,7 @@ import Login from "./pages/login/Login";
 import NotFound from "./pages/notFound/NotFound";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   // temporary navigate to dashboard when "/"
@@ -36,6 +37,45 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <RouterProvider router={router} />
+      <Toaster
+        position="top-right"
+        gutter={12}
+        containerStyle={{
+          margin: "8px",
+        }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+            style: {
+              backgroundColor: "#10b981",
+              color: "#fff",
+              maxWidth: "500px",
+              padding: "16px 24px",
+              borderRadius: "12px",
+              boxShadow: "0 4px 12px rgba(16, 185, 129, 0.25)",
+            },
+            iconTheme: {
+              primary: "#fff",
+              secondary: "#10b981",
+            },
+          },
+          error: {
+            duration: 5000,
+            style: {
+              backgroundColor: "#ef4444",
+              color: "#fff",
+              maxWidth: "500px",
+              padding: "16px 24px",
+              borderRadius: "12px",
+              boxShadow: "0 4px 12px rgba(239, 68, 68, 0.25)",
+            },
+            iconTheme: {
+              primary: "#fff",
+              secondary: "#ef4444",
+            },
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }
