@@ -3,7 +3,7 @@ const Header = ({ className = "" }: { className?: string }) => {
     <header
       className={`${className} border-b border-stone-200/80 bg-[linear-gradient(180deg,_rgba(255,255,255,0.88),_rgba(248,245,240,0.92))] px-10 py-6 backdrop-blur-sm`}
     >
-      <div className="flex items-center justify-between rounded-[2rem] border border-white/70 bg-white/60 px-8 py-5 shadow-[0_12px_35px_rgba(15,23,42,0.05)]">
+      <div className="flex items-center justify-between rounded-4xl border border-white/70 bg-white/60 px-8 py-2 shadow-[0_12px_35px_rgba(15,23,42,0.05)]">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-700">
             Wild Oasis

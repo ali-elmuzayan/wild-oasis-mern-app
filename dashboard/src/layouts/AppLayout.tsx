@@ -21,7 +21,7 @@ const AppLayout = () => {
         }
       />
       <main className="row-span-2 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.72),_transparent_40%),linear-gradient(180deg,_#f7f3ee_0%,_#f1ebe4_100%)] px-10 py-10">
-        <div className="min-h-full rounded-[2rem] border border-white/70 bg-white/55 p-14 shadow-[0_18px_50px_rgba(15,23,42,0.06)] backdrop-blur-sm">
+        <div className="min-h-full rounded-4xl border border-white/70 bg-white/55 p-14 shadow-[0_18px_50px_rgba(15,23,42,0.06)] backdrop-blur-sm">
           <Outlet />
         </div>
       </main>
