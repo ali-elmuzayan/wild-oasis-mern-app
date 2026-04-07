@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1b2631;
+  --color-primary-100: #e1e8ef;
+  --color-primary-200: #d4dee7;
+  --color-primary-300: #b7c7d7;
+  --color-primary-400: #99b0c7;
+  --color-primary-500: #7c99b6;
+  --color-primary-600: #5e82a6;
+  --color-primary-700: #4c6b8a;
+  --color-primary-800: #3c546c;
+  --color-primary-900: #2c3d4f;
+  --color-primary-950: #1b2631;
+
+  --color-accent-100: #faf5f0;
+  --color-accent-200: #f4ece1;
+  --color-accent-300: #e8d6bf;
+  --color-accent-400: #ddc2a2;
+  --color-accent-500: #d2af84;
+  --color-accent-600: #c69963;
+  --color-accent-700: #b78343;
+  --color-accent-800: #926835;
+  --color-accent-900: #6c4d28;
+  --color-accent-950: #4b351b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-950: var(--color-primary-950);
+
+  --color-accent-100: var(--color-accent-100);
+  --color-accent-200: var(--color-accent-200);
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+  --color-accent-800: var(--color-accent-800);
+  --color-accent-900: var(--color-accent-900);
+  --color-accent-950: var(--color-accent-950);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1b2631;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
